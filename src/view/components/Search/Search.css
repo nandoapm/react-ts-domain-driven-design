@@ -58,7 +58,6 @@
 }
 
 .movies-container div a:hover {
-	background-color: transparent;
-	border: 3px solid #2c302e;
-	color: #2c302e;
+	background-color: #b2b6bd;
+	border: 3px solid #b2b6bd;
 }
