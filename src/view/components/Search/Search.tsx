@@ -1,31 +1,16 @@
-import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
 import MovieCard from "../MovieCard/MovieCard";
-
-import "./Search.css";
-import IMoviesDto from "../../../domain/dto/MoviesDto";
-import IMovieDetailsDto from "../../../domain/dto/MovieDetailsDto";
-import { MoviedbApi } from "../../../application/themoviedb/MoviedbApi";
 import { Title } from "../../pages/Home/styles";
 
-const Search = () => {
-	const [searchParams] = useSearchParams();
+import "./Search.css";
+import useMovieContext from "../../provider/useMovieContext";
 
-	const [filteredMovies, setFilteredMovies] = useState<IMovieDetailsDto[]>();
-	const query: IQuery = searchParams.get("q");
+const Search = () => {
+	const { query, filteredMovies, getMovieSearch } = useMovieContext();
 
 	useEffect(() => {
 		getMovieSearch(query);
-	}, [query]);
-
-	const getMovieSearch = async (query: IQuery): Promise<void> => {
-		try {
-			const data: IMoviesDto = await MoviedbApi.getMovieSearch(query);
-			setFilteredMovies(data.results);
-		} catch (error) {
-			console.error(error);
-		}
-	};
+	}, []);
 
 	return (
 		<div className="container">

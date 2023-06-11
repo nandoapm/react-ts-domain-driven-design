@@ -1,9 +1,14 @@
+import { useEffect } from "react";
 import { Container, Title } from "./styles";
-import useHomeService from "./HomeService";
 import MovieCard from "../../components/MovieCard/MovieCard";
+import useMovieContext from "../../provider/useMovieContext";
 
 const Home = () => {
-	const { featuredMovies } = useHomeService();
+	const { featuredMovies, getMovies } = useMovieContext();
+
+	useEffect(() => {
+		getMovies();
+	}, []);
 
 	return (
 		<Container>

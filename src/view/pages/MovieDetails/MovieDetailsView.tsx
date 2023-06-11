@@ -1,11 +1,16 @@
+import { useEffect } from "react";
+import useMovieContext from "../../provider/useMovieContext";
 import { BsGraphUp, BsWallet2, BsHourglassSplit, BsFillFileEarmarkTextFill } from "react-icons/bs";
-import useMovieDetailsService from "./MovieDetailsService";
 import MovieCard from "../../components/MovieCard/MovieCard";
 
 import "./MovieDetails.css";
 
 const MovieDetails = () => {
-	const { movieDetails } = useMovieDetailsService();
+	const { id, movieDetails, getMovieDetails } = useMovieContext();
+
+	useEffect(() => {
+		getMovieDetails(id ?? "");
+	}, []);
 
 	const formatCurrency = (number: number) => {
 		return number.toLocaleString("en-US", {

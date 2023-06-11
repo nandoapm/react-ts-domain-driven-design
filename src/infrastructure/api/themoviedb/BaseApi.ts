@@ -3,7 +3,6 @@ import ApiServer from "./ApiServer";
 import { HttpMethod } from "../../../domain/HttpMethod";
 
 const token = import.meta.env.VITE_TOKEN;
-
 export default class BaseApi {
 	constructor(apiAddress: string) {
 		this.baseUrl = ApiServer() + apiAddress;

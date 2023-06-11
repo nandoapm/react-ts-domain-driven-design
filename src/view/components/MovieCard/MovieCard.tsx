@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
-import IMovieDetailsDto from "../../../domain/dto/MovieDetailsDto";
+import { MovieDetails } from "../../../domain/Movie";
 
 const imagesURL = import.meta.env.VITE_IMG;
 
 type TMovieCardProps = {
-	movie: IMovieDetailsDto;
+	movie: MovieDetails;
 	showLink?: boolean;
 };
 
