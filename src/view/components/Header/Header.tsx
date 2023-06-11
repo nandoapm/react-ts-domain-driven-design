@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { SiThemoviedatabase } from "react-icons/si";
 
-import "./Header.css";
+import { Nav } from "./styles";
 
 const Header = () => {
 	const [search, setSearch] = useState("");
@@ -19,7 +19,7 @@ const Header = () => {
 	};
 
 	return (
-		<nav id="navbar">
+		<Nav>
 			<h2>
 				<Link to="/">
 					<SiThemoviedatabase /> CinemaMania
@@ -36,7 +36,7 @@ const Header = () => {
 					<FaSearch />
 				</button>
 			</form>
-		</nav>
+		</Nav>
 	);
 };
 

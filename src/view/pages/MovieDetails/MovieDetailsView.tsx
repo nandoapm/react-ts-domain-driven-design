@@ -3,7 +3,7 @@ import useMovieContext from "../../provider/useMovieContext";
 import { BsGraphUp, BsWallet2, BsHourglassSplit, BsFillFileEarmarkTextFill } from "react-icons/bs";
 import MovieCard from "../../components/MovieCard/MovieCard";
 
-import "./MovieDetails.css";
+import { ContainerDatail, Description, Info, TagLine } from "./styles";
 
 const MovieDetails = () => {
 	const { id, movieDetails, getMovieDetails } = useMovieContext();
@@ -20,38 +20,43 @@ const MovieDetails = () => {
 	};
 
 	return (
-		<div className="movie-page">
+		<ContainerDatail>
 			{movieDetails && (
 				<>
 					<MovieCard movie={movieDetails} />
-					<p className="tagline">{movieDetails.tagline}</p>
-					<div className="info">
+
+					<TagLine>{movieDetails.tagline}</TagLine>
+
+					<Info>
 						<h3>
-							<BsWallet2 /> Orçamento:
+							<BsWallet2 />
 						</h3>
-						<p>{formatCurrency(movieDetails.budget)}</p>
-					</div>
-					<div className="info">
+						<p>Orçamento: {formatCurrency(movieDetails.budget)}</p>
+					</Info>
+
+					<Info>
 						<h3>
-							<BsGraphUp /> Receita:
+							<BsGraphUp />
 						</h3>
-						<p>{formatCurrency(movieDetails.revenue)}</p>
-					</div>
-					<div className="info">
+						<p>Receita: {formatCurrency(movieDetails.revenue)}</p>
+					</Info>
+
+					<Info>
 						<h3>
-							<BsHourglassSplit /> Duração:
+							<BsHourglassSplit />
 						</h3>
-						<p>{movieDetails.runtime} minutos</p>
-					</div>
-					<div className="info description">
+						<p>Duração: {movieDetails.runtime} minutos</p>
+					</Info>
+
+					<Description>
 						<h3>
-							<BsFillFileEarmarkTextFill /> Descrição:
+							<BsFillFileEarmarkTextFill /> Descrição
 						</h3>
 						<p>{movieDetails.overview}</p>
-					</div>
+					</Description>
 				</>
 			)}
-		</div>
+		</ContainerDatail>
 	);
 };
 
