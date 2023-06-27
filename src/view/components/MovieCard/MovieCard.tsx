@@ -7,7 +7,7 @@ const imagesURL = import.meta.env.VITE_IMG;
 
 type TMovieCardProps = {
 	movie: MovieDetails;
-	showLink?: boolean;
+	showLink: boolean;
 };
 
 const MovieCard: React.FC<TMovieCardProps> = ({ movie, showLink = true }) => {
